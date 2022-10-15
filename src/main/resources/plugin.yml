@@ -1,0 +1,8 @@
+name: minelatino-bwhalloween
+version: 1.0
+authors: [Minelatino]
+depend: [MBedwars]
+main: com.gasthiiml.bwhalloween.BWHalloween
+commands:
+  mlhr:
+    description: reload cmd
