@@ -12,8 +12,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.SkullMeta;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.UUID;
@@ -43,15 +42,18 @@ public class ArenaBedBreakEvent implements Listener {
                     .translateAlternateColorCodes('&', s));
         }
 
-        GameProfile gameProfile = new GameProfile(UUID.randomUUID(), null);
-        gameProfile.getProperties().put("textures", new Property("textures",
+        GameProfile profile = new GameProfile(UUID
+                .fromString(plugin.config.getString("Candy.Skull-UUID")), null);
+        profile.getProperties().put("textures", new Property("textures",
                 plugin.config.getString("Candy.Skull-Value")));
-
+        Field profileField;
         try {
-            Method mtd = meta.getClass().getDeclaredMethod("profile", GameProfile.class);
-            mtd.setAccessible(true);
-            mtd.invoke(meta, gameProfile);
-        } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException ex) {
+            profileField = meta.getClass().getDeclaredField("profile");
+            profileField.setAccessible(true);
+            profileField.set(meta, profile);
+        } catch (NoSuchFieldException
+                 | IllegalArgumentException
+                 | IllegalAccessException ex) {
             ex.printStackTrace();
         }
 

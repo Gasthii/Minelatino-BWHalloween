@@ -79,7 +79,6 @@ public class PlayerInteractEvent implements Listener {
                                         int duration = potionDurations.get(randomPotion);
                                         int amplifier = potionAmplifiers.get(randomPotion);
 
-                                        p.getInventory().removeItem(item);
                                         p.addPotionEffect(new PotionEffect(potion, duration, amplifier));
                                     }
                                     if(plugin.config.getBoolean("Commands.Pumpkin.As-Console.Enabled").equals(true)) {
@@ -104,6 +103,7 @@ public class PlayerInteractEvent implements Listener {
                                             Bukkit.dispatchCommand(p, s);
                                         }
                                     }
+                                    p.getInventory().removeItem(item);
                                 }
                                 else return;
                             }
@@ -145,7 +145,6 @@ public class PlayerInteractEvent implements Listener {
                                         int duration = potionDurations.get(randomPotion);
                                         int amplifier = potionAmplifiers.get(randomPotion);
 
-                                        p.getInventory().removeItem(item);
                                         p.addPotionEffect(new PotionEffect(potion, duration, amplifier));
                                     }
                                     if(plugin.config.getBoolean("Commands.Candy.As-Console.Enabled").equals(true)) {
@@ -170,6 +169,7 @@ public class PlayerInteractEvent implements Listener {
                                             Bukkit.dispatchCommand(p, s);
                                         }
                                     }
+                                    p.getInventory().removeItem(item);
                                 }
                                 else return;
                             }

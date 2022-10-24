@@ -29,7 +29,7 @@ public class ReloadCommand implements CommandExecutor {
                     plugin.config.reload();
                     p.sendMessage(ChatColor
                             .translateAlternateColorCodes('&',
-                                    plugin.config.getString("Reload.Reloaded")));
+                                    plugin.config.getString("Messages.Reloaded")));
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
@@ -37,7 +37,7 @@ public class ReloadCommand implements CommandExecutor {
             else {
                 p.sendMessage(ChatColor
                         .translateAlternateColorCodes('&',
-                                plugin.config.getString("Reload.No-Permission")));
+                                plugin.config.getString("Messages.No-Permission")));
             }
         }
         if(commandSender instanceof ConsoleCommandSender) {

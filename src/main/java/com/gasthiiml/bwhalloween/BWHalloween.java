@@ -1,5 +1,6 @@
 package com.gasthiiml.bwhalloween;
 
+import com.gasthiiml.bwhalloween.commands.GiveCommand;
 import com.gasthiiml.bwhalloween.commands.ReloadCommand;
 import com.gasthiiml.bwhalloween.events.ArenaBedBreakEvent;
 import com.gasthiiml.bwhalloween.events.BlockPlaceEvent;
@@ -51,6 +52,7 @@ public class BWHalloween extends JavaPlugin {
             Bukkit.getPluginManager().registerEvents(new PlayerInteractEvent(this), this);
             Bukkit.getPluginManager().registerEvents(new BlockPlaceEvent(this), this);
             this.getCommand("mlhr").setExecutor(new ReloadCommand(this));
+            this.getCommand("mlhg").setExecutor(new GiveCommand(this));
         }
         else {
             this.getLogger().warning("MBedwars is not enabled!");
